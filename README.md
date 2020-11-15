@@ -4,4 +4,11 @@ This repository contains code to reproduce the figures and analysis from the pre
 
 To reproduce the analysis run the code found in the file `run_analysis.R`
 
-Adding python scripts to repduce figures
+Adding python scripts to reproduce figures
+
+**Python Installation notes:**
+- PyStan ([Windows](https://pystan.readthedocs.io/en/latest/windows.html#windows))
+
+**R Installation notes:**
+-  Rtools ([Windows](https://cran.r-project.org/bin/windows/Rtools/))
+-  Rstan ([Windows](https://github.com/stan-dev/rstan/wiki/Installing-RStan-from-source-on-Windows))
