@@ -165,4 +165,20 @@ if __name__ == "__main__":
     axes.set_ylim(ylim)
     fig.tight_layout()
     plt.savefig('figure2.png')
+
+    #####################################
+    # Figure 3A: Posterior of PCR curve #
+    ######################################
+    p = res['p']
+    fig = plt.figure(figsize=(12,8))
+    axa = plt.axes((0.05, 0.5, 0.93, 0.48))
+    days = np.linspace(0, 30, p.shape[1]) # NB: time axis is defined in the pcr_breakpoint.stan model
+    axa.fill_between(days,np.percentile(p, 2.5, axis=0), np.percentile(p, 97.5, axis=0), color=colors[0], alpha=0.3)
+    axa.plot(days, np.percentile(p, 50, axis=0), color=colors[0])
+
+    axa.set_ylim(0, 1)
+    axa.set_xlabel('Days since infections')
+    axa.set_ylabel('P(PCR positive)')
+    plt.savefig('figure3.png')
+
     print('done')
