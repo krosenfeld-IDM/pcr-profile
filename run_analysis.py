@@ -13,7 +13,7 @@ colors = plt.rcParams['axes.prop_cycle'].by_key()['color']
 
 if __name__ == "__main__":
     compile_model = 0 # compile stan model
-    run_fit = 0 # run fit
+    run_fit = 1 # run fit
     do_save = 1 # save stan model, res,
 
     # Load in participant data
@@ -131,6 +131,7 @@ if __name__ == "__main__":
                                       'max_treedepth': 13})
         res = fit.extract()
         if do_save:
+            res.update({'t': np.linspace(0,30,res['p'].shape[1])})
             pickle.dump(res, open('res.pkl', 'wb'))
     else:
         res = pickle.load(open('res.pkl', 'rb'))
